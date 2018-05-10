@@ -19,7 +19,7 @@ module V1
     @dislike = current_user.dislikes.build(dislike_params)
 
     if @dislike.save
-      render json: @dislike, status: :created, location: @dislike
+      json_response({ status: 'Suceess'})
     else
       render json: @dislike.errors, status: :unprocessable_entity
     end

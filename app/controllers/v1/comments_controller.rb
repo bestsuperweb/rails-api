@@ -19,7 +19,7 @@ module V1
     @comment = current_user.comments.build(comment_params)
 
     if @comment.save
-      render json: @comment, status: :created
+      json_response({ status: 'Suceess'})
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

@@ -19,7 +19,7 @@ module V1
     @like = current_user.likes.build(like_params)
 
     if @like.save
-      render json: @like, status: :created, location: @like
+      json_response({ status: 'Suceess'})
     else
       render json: @like.errors, status: :unprocessable_entity
     end

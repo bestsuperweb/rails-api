@@ -19,7 +19,7 @@ module V1
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      render json: @post, status: :created, location: @post
+      json_response({ status: 'Suceess'})
     else
       render json: @post.errors, status: :unprocessable_entity
     end
