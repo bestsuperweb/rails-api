@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'omniauth-twitter'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -32,6 +34,7 @@ gem 'rack-cors'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
