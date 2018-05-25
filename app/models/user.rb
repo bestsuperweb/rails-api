@@ -9,7 +9,10 @@ class User < ApplicationRecord
   validates_presence_of :name, :email, :password_digest
 
   def self.find_or_create_from_auth_hash(auth_hash)
-    user = find_or_create_by(email: auth_hash[:email], password_digest: "password_digest" )
+  	user = find_by(email: auth_hash[:email])
+  	if user.nil?
+  		user = create(email: auth_hash[:email], password_digest: "password_digest" )
+  	end
     user.update(
       provider: auth_hash[:provider],
       uid: auth_hash[:uid],
