@@ -9,6 +9,7 @@ class AuthenticationController < ApplicationController
 
   def authenticate_twitter
     @user = User.find_or_create_from_auth_hash(auth_hash)
+    p "***** userid = #{@user.id}"
     auth_token = JsonWebToken.encode(user_id: @user.id)
     json_response(auth_token: auth_token)
   end
@@ -22,7 +23,7 @@ class AuthenticationController < ApplicationController
   protected
  
   def auth_hash
-    request.env['omniauth.auth']
+    params.permit(:provider, :uid, :email, :name, :token, :secret )
   end
 
 end
