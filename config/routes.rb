@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
 	resources :users
 	post 'auth/login', to: 'authentication#authenticate'
-	get '/auth/:provider/callback', to: 'authentication#authenticate_twitter'
+	post '/auth/login/twitter', to: 'authentication#authenticate_twitter'
 
 end
